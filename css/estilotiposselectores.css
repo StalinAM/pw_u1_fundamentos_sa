@@ -1,0 +1,43 @@
+/* Selector de clase */
+.titulos {
+  color: red;
+  font-size: 30px;
+  background: blue;
+}
+/* Selector de ID */
+#id_titulo {
+  color: #00cc99;
+  font-size: 40px;
+  background: #b76d0b;
+}
+
+/* Selector de pseudo-clase */
+i:hover {
+  font-size: 50px;
+  color: yellow;
+}
+
+input:focus {
+  border-color: blue;
+  background: red;
+}
+/* Selector de atributo */
+[id] {
+  font-size: 25px;
+  color: purple;
+  background: orange;
+}
+/*
+img[alt='No1'] {
+  width: 80px;
+  height: 50px;
+}
+*/
+img[alt*='uce'] {
+  width: 80px;
+  height: 50px;
+}
+/* Selector universal */
+* {
+  /*declaraciones*/
+}
