@@ -27,7 +27,7 @@ function evaluarOperacion(tipo) {
     resultado = multiplicar(num1, num2)
   }
   if (tipo === '/') {
-    return dividir(num1, num2)
+    resultado = dividir(num1, num2)
   }
   document.getElementById('id_resultado').innerText = resultado
 }
