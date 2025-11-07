@@ -137,4 +137,103 @@ function fundamentosJS() {
     console.log(clave)
     console.log(profesor[clave])
   }
+
+  const e1 = {
+    nombre: 'Edison',
+    apellido: 'Cayambe',
+    edad: 36,
+    ecuatoriano: true,
+    genero: 'M',
+    ciudad: 'Quito'
+  }
+  const e2 = {
+    nombre: 'Edison',
+    apellido: 'Cayambe',
+    edad: 36,
+    ecuatoriano: true,
+    genero: 'M',
+    ciudad: 'Quito'
+  }
+  arregloEstudiantes = [
+    e1,
+    e2,
+    {
+      nombre: 'Edison',
+      apellido: 'Cayambe',
+      edad: 36,
+      ecuatoriano: true,
+      genero: 'M',
+      ciudad: 'Quito'
+    }
+  ]
+  console.log(arregloEstudiantes[0])
+  console.log(arregloEstudiantes[2])
+  /* Desestructuración */
+  const ar1 = [1, 2, 3, 4, 5, 6, 7]
+  const [p1, p2, p3, p4, p5] = ar1
+  console.log(p1)
+  console.log(p5)
+  const [primero, , , , , , ultimo] = ar1
+  console.log(primero)
+  console.log(ultimo)
+  const [pos1, pos2] = [1, 2, 3, 4, 5, 6, 7]
+  console.log(pos1)
+  console.log(pos2)
+  imprime(ar1)
+  const e3 = {
+    nombre: 'Edison',
+    apellido: 'Cayambe',
+    edad: 36,
+    ecuatoriano: true,
+    genero: 'M',
+    ciudad: 'Quito'
+  }
+  const { nombre: n1, ciudad: c1 } = e3
+  console.log(n1)
+  console.log(c1)
+
+  const { nombre: n, ciudad: c } = {
+    nombre: 'Edison',
+    apellido: 'Cayambe',
+    edad: 36,
+    ecuatoriano: true,
+    genero: 'M',
+    ciudad: 'Quito'
+  }
+  console.log(n)
+  console.log(c)
+  const e4 = {
+    nombre: 'Edison',
+    apellido: 'Cayambe',
+    edad: 36,
+    ecuatoriano: true,
+    genero: 'M',
+    ciudad: 'Quito',
+    direccion: {
+      calle: 'Av. America',
+      barrio: 'La Gasca',
+      numeracion: 1234
+    }
+  }
+  console.log(e4.direccion)
+  console.log(e4.direccion.barrio)
+
+  const { edad: ed, direccion } = e4
+  console.log(ed)
+  console.log(direccion)
+
+  const { calle } = e4.direccion
+  console.log(calle)
+  const {
+    direccion: { barrio, calle: c2, numeracion }
+  } = e4
+  console.log(barrio)
+  console.log(c2)
+  console.log(numeracion)
+}
+
+function imprime([a, b, c]) {
+  console.log(a)
+  console.log(b)
+  console.log(c)
 }
