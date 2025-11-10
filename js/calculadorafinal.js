@@ -1,28 +1,103 @@
-let num1 = 0
-let num2 = 0
+let expresion = ''
 
-function mostrarDisplay(valor) {
-  let elemento = document.getElementById('display')
-  elemento.innerText = elemento.innerText + valor
+const $ = (id) => document.getElementById(id)
+const setDisplay = (valor) => {
+  $('display').innerText = valor
 }
+const getDisplayValue = () => $('display').innerText
+
+function agregarNumero(valor) {
+  if (getDisplayValue() === '0') {
+    expresion = ''
+    setDisplay('')
+  }
+  expresion += valor
+  setDisplay(expresion)
+}
+
+function agregarOperacion(op) {
+  if (expresion === '' || /[+\-*/%]$/.test(expresion)) return
+  expresion += op
+  setDisplay(expresion)
+}
+
 function suma() {
-  mostrarDisplay('+')
+  agregarOperacion('+')
 }
-function resta(num1, num2) {
-  return num1 - num2
+function resta() {
+  agregarOperacion('-')
 }
-function multiplicacion(num1, num2) {
-  return num1 * num2
+function multiplicacion() {
+  agregarOperacion('*')
 }
-function division(num1, num2) {
-  return num1 / num2
+function division() {
+  agregarOperacion('/')
 }
-function porcentaje(num1, num2) {
-  return (num1 * num2) / 100
+function porcentaje() {
+  agregarOperacion('%')
 }
-function resultado() {}
+
+function resultado() {
+  const res = calcularExpresion(expresion)
+  setDisplay(res)
+  expresion = res === 'Error' ? '' : res.toString()
+}
 
 function limpiarDisplay() {
-  let elemento = document.getElementById('display')
-  elemento.innerText = ''
+  setDisplay('0')
+  expresion = ''
+}
+
+function retroceso() {
+  if (expresion.length > 0) {
+    expresion = expresion.slice(0, -1)
+    setDisplay(expresion === '' ? '0' : expresion)
+  }
+}
+
+function calcularExpresion(expresion) {
+  expresion = expresion.replace(/%/g, '/100')
+  const tokens = expresion.match(/\d+\.?\d*|[+\-*/]/g)
+  if (!tokens) return 'Error'
+  // Multiplicación y división primero
+  let stack = []
+  let i = 0
+  while (i < tokens.length) {
+    const token = tokens[i]
+    switch (token) {
+      case '*': {
+        const prev = parseFloat(stack.pop())
+        const next = parseFloat(tokens[++i])
+        stack.push(prev * next)
+        break
+      }
+      case '/': {
+        const prev = parseFloat(stack.pop())
+        const next = parseFloat(tokens[++i])
+        if (next === 0) return 'Error'
+        stack.push(prev / next)
+        break
+      }
+      default:
+        stack.push(token)
+    }
+    i++
+  }
+  // Suma y resta
+  let result = parseFloat(stack[0])
+  i = 1
+  while (i < stack.length) {
+    const op = stack[i]
+    const num = parseFloat(stack[i + 1])
+    switch (op) {
+      case '+':
+        result += num
+        break
+      case '-':
+        result -= num
+        break
+    }
+    i += 2
+  }
+  return isNaN(result) ? 'Error' : parseFloat(result.toFixed(3))
 }

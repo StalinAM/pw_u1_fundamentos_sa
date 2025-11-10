@@ -15,25 +15,25 @@
       <section>
         <div id="calculadora">
           <!--<label id="display" for="">0+1=1</label>-->
-          <div id="display">1+2=3</div>
+          <div id="display">0</div>
           <button onclick="limpiarDisplay()">C</button>
-          <button>←</button>
-          <button>%</button>
-          <button>/</button>
-          <button onclick="mostrarDisplay(7)">7</button>
-          <button onclick="mostrarDisplay(8)">8</button>
-          <button onclick="mostrarDisplay(9)">9</button>
-          <button onclick="mostrarDisplay('*')">*</button>
-          <button onclick="mostrarDisplay(4)">4</button>
-          <button onclick="mostrarDisplay(5)">5</button>
-          <button onclick="mostrarDisplay(6)">6</button>
-          <button onclick="mostrarDisplay('-')">-</button>
-          <button onclick="mostrarDisplay(1)">1</button>
-          <button onclick="mostrarDisplay(2)">2</button>
-          <button onclick="mostrarDisplay(3)">3</button>
+          <button onclick="retroceso()">←</button>
+          <button onclick="porcentaje()">%</button>
+          <button onclick="division()">/</button>
+          <button onclick="agregarNumero('7')">7</button>
+          <button onclick="agregarNumero('8')">8</button>
+          <button onclick="agregarNumero('9')">9</button>
+          <button onclick="multiplicacion()">*</button>
+          <button onclick="agregarNumero('4')">4</button>
+          <button onclick="agregarNumero('5')">5</button>
+          <button onclick="agregarNumero('6')">6</button>
+          <button onclick="resta()">-</button>
+          <button onclick="agregarNumero('1')">1</button>
+          <button onclick="agregarNumero('2')">2</button>
+          <button onclick="agregarNumero('3')">3</button>
           <button onclick="suma()">+</button>
-          <button onclick="mostrarDisplay(0)">0</button>
-          <button>.</button>
+          <button onclick="agregarNumero('0')">0</button>
+          <button onclick="agregarNumero('.')">.</button>
           <button class="column-2" onclick="resultado()">=</button>
         </div>
       </section>
