@@ -14,8 +14,19 @@ function validarCampos() {
     mostrarAsterisco('id_error_nombre')
     return
   }
+
+  if (!validar(nombre, /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/)) {
+    mostrarMensaje('Nombre no es válido')
+    mostrarAsterisco('id_error_nombre')
+    return
+  }
   if (apellido === '') {
     mostrarMensaje('Apellido es obligatorio')
+    mostrarAsterisco('id_error_apellido')
+    return
+  }
+  if (!validar(apellido, /^[A-Za-zÁÉÍÓÚáéíóúÑñ ]+$/)) {
+    mostrarMensaje('Apellido no es válido')
     mostrarAsterisco('id_error_apellido')
     return
   }
@@ -29,16 +40,19 @@ function validarCampos() {
     mostrarAsterisco('id_error_email')
     return
   }
+  if (!validar(email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+    mostrarMensaje('Email no es válido')
+    mostrarAsterisco('id_error_email')
+    return
+  }
   if (password === '') {
     mostrarMensaje('Password es obligatorio')
     mostrarAsterisco('id_error_password')
     return
   }
-  if (!validarEmail(email)) {
-    console.log('validarEmail', email)
-
-    mostrarMensaje('Email no es válido')
-    mostrarAsterisco('id_error_email')
+  if (!validar(password, /^.{8,}$/)) {
+    mostrarMensaje('Password no es válido. Debe tener al menos 8 caracteres')
+    mostrarAsterisco('id_error_password')
     return
   }
 }
@@ -57,7 +71,7 @@ function limpiarMensajes() {
     elem.innerText = ''
   })
 }
-function validarEmail() {
-  const patron = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  return patron.test(email)
+
+function validar(texto, patron) {
+  return patron.test(texto)
 }
