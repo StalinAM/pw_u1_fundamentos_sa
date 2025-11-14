@@ -63,3 +63,20 @@ header {
   color: #2b06e5;
   border-bottom: 2px solid #0825a8;
 }
+.msg_error {
+  display: none;
+  background-color: rgb(241, 217, 217);
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  padding: 6px 8px;
+  font: bold;
+  border-radius: 8px;
+}
+.error_asterisco {
+  color: red;
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 4px;
+}
