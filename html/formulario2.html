@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/formulario2.css" />
+    <script src="../js/formulario2.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>UNIVERSIDAD CENTRAL DEL ECUADOR</header>
+      <nav></nav>
+      <section class="container-form">
+        <div class="card">
+          <h1>VISA</h1>
+          <p id="card_number">0000 0000 0000 0000</p>
+          <div class="info-card">
+            <div class="card-details">
+              <span class="title">Card Holder</span>
+              <span id="card_holder">Stalin Acurio</span>
+            </div>
+            <div class="card-details">
+              <span class="title">VALID THRU</span>
+              <span id="valid_thru">MM/YY</span>
+            </div>
+          </div>
+        </div>
+        <form class="formulario" action="#">
+          <h2>Payment Details</h2>
+          <div>
+            <label for="id_cardholder_name">Cardholder Name</label>
+            <input
+              id="id_cardholder_name"
+              type="text"
+              placeholder="Stalin Acurio"
+            />
+            <span id="error_cardholder_name" class="error-message"></span>
+          </div>
+          <div>
+            <label for="id_card_number">Card Number</label>
+            <input
+              id="id_card_number"
+              type="text"
+              placeholder="1234 5678 9012 3456"
+            />
+            <span id="error_card_number" class="error-message"></span>
+          </div>
+          <div class="form-grid">
+            <div>
+              <label for="id_exp_date">Exp Date</label>
+              <input id="id_exp_date" type="month" />
+              <span id="error_exp_date" class="error-message"></span>
+            </div>
+            <div>
+              <label for="id_cvv">CVV</label>
+              <input id="id_cvv" type="text" placeholder="123" />
+              <span id="error_cvv" class="error-message"></span>
+            </div>
+          </div>
+          <button type="button" onclick="guardarFormulario()">Confirm</button>
+        </form>
+      </section>
+      <footer>Todos los derechos reservados</footer>
+    </div>
+  </body>
+</html>
